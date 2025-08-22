@@ -40,6 +40,7 @@ export const gameProfiles = pgTable("game_profiles", {
     verified: false,
     premiumVerified: false
   }),
+  socialPosts: jsonb("social_posts").notNull().default([]),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -104,10 +105,16 @@ export interface Track {
   title: string;
   beat: string;
   quality: number;
-  views?: number;
-  likes?: number;
+  views: number;
+  likes: number;
+  dislikes: number;
+  comments: number;
+  streams: number;
   releaseDate?: string;
   isReleased: boolean;
+  hasVideo: boolean;
+  videoViews: number;
+  earnings: number;
 }
 
 export interface Album {
@@ -123,5 +130,34 @@ export interface GameStats {
   totalTracks: number;
   totalAlbums: number;
   totalMusicVideos: number;
-  careerLength: number;
+  totalViews: number;
+  totalStreams: number;
+  totalEarnings: number;
+}
+
+export interface MusicVideo {
+  id: string;
+  trackId: string;
+  title: string;
+  budget: number;
+  quality: number;
+  views: number;
+  likes: number;
+  dislikes: number;
+  comments: number;
+  releaseDate: string;
+  earnings: number;
+}
+
+export interface SocialMediaPost {
+  id: string;
+  type: 'photo' | 'video' | 'text' | 'track_announcement' | 'video_announcement';
+  content: string;
+  likes: number;
+  comments: number;
+  shares: number;
+  views: number;
+  timestamp: string;
+  trackId?: string;
+  videoId?: string;
 }

@@ -37,11 +37,11 @@ export default function SplashScreen() {
           <img 
             src={rapMasterLogo} 
             alt="RapMaster Simulator"
-            className="w-32 h-32 mx-auto mb-4 drop-shadow-2xl"
+            className="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-4 drop-shadow-2xl mobile-splash-logo"
           />
         </div>
-        <h1 className="text-5xl font-black gradient-text mb-2">RapMaster</h1>
-        <h2 className="text-3xl font-bold text-white mb-8">Simulator</h2>
+        <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 mobile-splash-title">RapMaster</h1>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 mobile-splash-subtitle">Simulator</h2>
         <div className="w-32 h-1 game-gold-gradient mx-auto rounded-full"></div>
       </div>
       

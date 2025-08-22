@@ -94,15 +94,21 @@ export default function SettingsPage() {
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-white">Sound Effects</span>
-              <Button className="bg-game-green text-white px-3 py-1 rounded text-sm">ON</Button>
+              <Button className="bg-game-green hover:bg-green-600 text-white px-3 py-1 rounded text-sm flex items-center">
+                <span className="mr-1">🔊</span>ON
+              </Button>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-white">Music</span>
-              <Button className="bg-game-green text-white px-3 py-1 rounded text-sm">ON</Button>
+              <Button className="bg-game-green hover:bg-green-600 text-white px-3 py-1 rounded text-sm flex items-center">
+                <span className="mr-1">🎵</span>ON
+              </Button>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-white">Notifications</span>
-              <Button className="bg-game-green text-white px-3 py-1 rounded text-sm">ON</Button>
+              <Button className="bg-game-green hover:bg-green-600 text-white px-3 py-1 rounded text-sm flex items-center">
+                <span className="mr-1">🔔</span>ON
+              </Button>
             </div>
           </div>
         </div>

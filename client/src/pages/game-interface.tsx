@@ -51,7 +51,7 @@ export default function GameInterface() {
     <div className="min-h-screen flex flex-col" data-testid="game-interface">
       <Header />
       
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden pb-2">
         {renderPage()}
       </div>
       

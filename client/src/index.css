@@ -121,6 +121,35 @@
 }
 
 @layer utilities {
+  /* Mobile-first responsive utilities */
+  .mobile-container {
+    @apply px-4 py-2 sm:px-6 sm:py-4;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base;
+  }
+  
+  .mobile-header {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+  
+  .mobile-grid {
+    @apply grid gap-3 sm:gap-4;
+  }
+  
+  .mobile-button {
+    @apply px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base min-h-[44px];
+  }
+  
+  .mobile-card {
+    @apply p-4 sm:p-6 rounded-lg sm:rounded-xl;
+  }
+  
+  .mobile-touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
   .gradient-text {
     background: linear-gradient(45deg, var(--game-gold), hsl(43 76% 47%));
     -webkit-background-clip: text;
@@ -142,6 +171,43 @@
   
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in;
+  }
+  
+  /* Mobile-specific adjustments */
+  @media (max-width: 640px) {
+    .mobile-splash-logo {
+      @apply w-24 h-24;
+    }
+    
+    .mobile-splash-title {
+      @apply text-3xl;
+    }
+    
+    .mobile-splash-subtitle {
+      @apply text-xl;
+    }
+    
+    .mobile-nav-grid {
+      @apply grid-cols-2 gap-2;
+    }
+    
+    .mobile-stats-grid {
+      @apply grid-cols-1;
+    }
+    
+    .mobile-form-spacing {
+      @apply space-y-3;
+    }
+  }
+  
+  @media (min-width: 641px) {
+    .mobile-nav-grid {
+      @apply grid-cols-3 gap-4;
+    }
+    
+    .mobile-stats-grid {
+      @apply grid-cols-2;
+    }
   }
 }
 

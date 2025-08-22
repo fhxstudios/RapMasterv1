@@ -26,8 +26,8 @@ export default function Navigation({ activePage, onPageChange }: NavigationProps
   ];
 
   return (
-    <div className="bg-gradient-to-r from-game-dark to-game-purple border-t border-gray-700 p-2 sticky bottom-0">
-      <div className="flex justify-around">
+    <div className="bg-gradient-to-r from-game-dark to-game-purple border-t border-gray-700 p-2 sm:p-3 sticky bottom-0 safe-area-inset-bottom">
+      <div className="flex justify-around max-w-md mx-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activePage === item.id;
@@ -38,13 +38,13 @@ export default function Navigation({ activePage, onPageChange }: NavigationProps
               onClick={() => onPageChange(item.id)}
               variant="ghost"
               size="sm"
-              className={`flex flex-col items-center p-2 rounded-lg ${
+              className={`flex flex-col items-center p-2 sm:p-3 rounded-lg mobile-touch-target ${
                 isActive ? 'text-game-electric' : 'text-gray-400 hover:text-white'
               }`}
               data-testid={`nav-${item.id}`}
             >
-              <Icon className="h-5 w-5" />
-              <span className="text-xs mt-1">{item.label}</span>
+              <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+              <span className="text-xs sm:text-sm mt-1 hidden sm:inline">{item.label}</span>
             </Button>
           );
         })}
