@@ -1,0 +1,64 @@
+definitions:
+  env:
+    variables:
+      - PACKAGE_NAME: "com.rapmaster.simulator"
+      - KEYSTORE_PASSWORD: "Encrypted(...)" # Add your keystore password here
+      - KEY_ALIAS: "rapmaster_key"
+      - KEY_PASSWORD: "Encrypted(...)" # Add your key password here
+
+workflows:
+  android-rapmaster:
+    name: RapMaster Simulator Android Build
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      groups:
+        - production # Define environment variables group
+      android_signing:
+        - rapmaster_keystore
+      node: 18.17.0
+      npm: 9
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: 'main'
+          include: true
+          source: true
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm ci
+      - name: Build React app
+        script: |
+          npm run build
+      - name: Install Capacitor
+        script: |
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+      - name: Initialize Capacitor
+        script: |
+          npx cap init "RapMaster Simulator" "$PACKAGE_NAME"
+      - name: Create Android project
+        script: |
+          npx cap add android
+      - name: Copy web assets
+        script: |
+          npx cap copy android
+      - name: Sync Capacitor
+        script: |
+          npx cap sync android
+      - name: Build Android APK
+        script: |
+          cd android
+          ./gradlew assembleRelease
+      - name: Build Android AAB
+        script: |
+          cd android
+          ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/**/*.apk
+      - android/app/build/outputs/**/*.aab
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
