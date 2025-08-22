@@ -64,9 +64,9 @@ export default function ShopPage() {
                   </h4>
                   <p className="text-gray-400 text-sm">{item.description}</p>
                   <div className="text-game-green text-sm">
-                    {item.reputationBoost > 0 && `+${item.reputationBoost} Reputation`}
-                    {item.fameBoost > 0 && ` +${item.fameBoost} Fame`}
-                    {item.fanBoost > 0 && ` +${item.fanBoost} Fans`}
+                    {(item.reputationBoost || 0) > 0 && `+${item.reputationBoost} Reputation`}
+                    {(item.fameBoost || 0) > 0 && ` +${item.fameBoost} Fame`}
+                    {(item.fanBoost || 0) > 0 && ` +${item.fanBoost} Fans`}
                   </div>
                 </div>
                 <div className="text-right">

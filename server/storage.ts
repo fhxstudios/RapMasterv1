@@ -141,6 +141,7 @@ export class MemStorage implements IStorage {
     const gameProfile: GameProfile = {
       ...profile,
       id,
+      userId: profile.userId || null,
       createdAt: new Date(),
       updatedAt: new Date(),
     };

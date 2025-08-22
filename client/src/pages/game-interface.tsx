@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGameState } from "@/hooks/use-game-state";
 import { useLocation } from "wouter";
 import Header from "@/components/game/header";
@@ -16,8 +16,13 @@ export default function GameInterface() {
   const [, setLocation] = useLocation();
   const [activePage, setActivePage] = useState("home");
 
+  useEffect(() => {
+    if (!profile) {
+      setLocation("/menu");
+    }
+  }, [profile, setLocation]);
+
   if (!profile) {
-    setLocation("/menu");
     return null;
   }
 
