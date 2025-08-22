@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
+import rapMasterLogo from "@assets/RapMasterIcon_1755893268109.png";
 
 export default function SplashScreen() {
   const [, setLocation] = useLocation();
@@ -31,8 +32,15 @@ export default function SplashScreen() {
       
       {/* Game Logo */}
       <div className="text-center animate-pulse-glow" data-testid="game-logo">
-        <h1 className="text-6xl font-black gradient-text mb-4">RapMaster</h1>
-        <h2 className="text-4xl font-bold text-white mb-8">Simulator</h2>
+        <div className="mb-6">
+          <img 
+            src={rapMasterLogo} 
+            alt="RapMaster Simulator"
+            className="w-32 h-32 mx-auto mb-4 drop-shadow-2xl"
+          />
+        </div>
+        <h1 className="text-5xl font-black gradient-text mb-2">RapMaster</h1>
+        <h2 className="text-3xl font-bold text-white mb-8">Simulator</h2>
         <div className="w-32 h-1 game-gold-gradient mx-auto rounded-full"></div>
       </div>
       

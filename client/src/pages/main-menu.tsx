@@ -2,6 +2,7 @@ import { useLocation } from "wouter";
 import { useGameState } from "@/hooks/use-game-state";
 import { Button } from "@/components/ui/button";
 import { Play, FolderOpen, ShoppingCart, Settings } from "lucide-react";
+import rapMasterLogo from "@assets/RapMasterIcon_1755893268109.png";
 
 export default function MainMenu() {
   const [, setLocation] = useLocation();
@@ -33,8 +34,13 @@ export default function MainMenu() {
       <div className="relative z-10 w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-12" data-testid="main-menu-logo">
-          <h1 className="text-5xl font-black gradient-text mb-2">RapMaster</h1>
-          <h2 className="text-2xl font-bold text-white">Simulator</h2>
+          <img 
+            src={rapMasterLogo} 
+            alt="RapMaster Simulator"
+            className="w-24 h-24 mx-auto mb-4 drop-shadow-2xl"
+          />
+          <h1 className="text-4xl font-black gradient-text mb-2">RapMaster</h1>
+          <h2 className="text-xl font-bold text-white">Simulator</h2>
         </div>
 
         {/* Menu Buttons */}
