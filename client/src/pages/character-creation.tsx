@@ -9,6 +9,9 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ArrowLeft, Rocket } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import avatar1 from "@assets/Memoji-03_1755893074221.png";
+import avatar2 from "@assets/Memoji-04_1755893074302.png";
+import avatar3 from "@assets/Memoji-09_1755893074360.png";
 
 export default function CharacterCreation() {
   const [, setLocation] = useLocation();
@@ -20,9 +23,9 @@ export default function CharacterCreation() {
   const [isLoading, setIsLoading] = useState(false);
 
   const avatarOptions = [
-    { id: 1, name: "Classic", gradient: "from-game-electric to-purple-600" },
-    { id: 2, name: "Street", gradient: "from-game-green to-green-600" },
-    { id: 3, name: "Luxury", gradient: "from-game-gold to-yellow-600" },
+    { id: 1, name: "Glasses Guy", image: avatar1 },
+    { id: 2, name: "Clean Cut", image: avatar2 },
+    { id: 3, name: "Beard Boss", image: avatar3 },
   ];
 
   const cityOptions = [
@@ -140,13 +143,17 @@ export default function CharacterCreation() {
               <div
                 key={avatar.id}
                 onClick={() => setSelectedAvatar(avatar.id)}
-                className={`bg-gradient-to-br ${avatar.gradient} rounded-xl p-4 cursor-pointer transform hover:scale-105 transition-all border-2 ${
+                className={`bg-game-card rounded-xl p-4 cursor-pointer transform hover:scale-105 transition-all border-2 ${
                   selectedAvatar === avatar.id ? 'border-game-gold' : 'border-transparent'
                 }`}
                 data-testid={`avatar-option-${avatar.id}`}
               >
-                <div className="w-full h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-user text-3xl text-white"></i>
+                <div className="w-full h-20 rounded-lg flex items-center justify-center bg-white">
+                  <img 
+                    src={avatar.image} 
+                    alt={avatar.name}
+                    className="w-16 h-16 object-contain"
+                  />
                 </div>
                 <p className="text-xs text-center mt-2 text-white">{avatar.name}</p>
               </div>
