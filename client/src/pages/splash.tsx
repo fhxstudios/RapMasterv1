@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import rapMasterLogo from "@assets/RapMasterIcon_1755893268109.png";
+import fhxStudiosLogo from "@assets/Picsart_25-06-26_15-00-11-361_1755893418224.png";
 
 export default function SplashScreen() {
   const [, setLocation] = useLocation();
@@ -46,8 +47,15 @@ export default function SplashScreen() {
       
       {/* Footer */}
       <div className="absolute bottom-8 text-center">
-        <p className="text-gray-300 text-sm">Powered by FHX STUDIOS</p>
-        <p className="text-gray-400 text-xs mt-2">Tap anywhere to continue</p>
+        <div className="flex flex-col items-center">
+          <p className="text-gray-400 text-xs mb-3">Powered by</p>
+          <img 
+            src={fhxStudiosLogo} 
+            alt="FHX Studios"
+            className="h-8 mb-3 opacity-80"
+          />
+          <p className="text-gray-400 text-xs">Tap anywhere to continue</p>
+        </div>
       </div>
     </div>
   );
