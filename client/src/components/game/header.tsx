@@ -1,9 +1,11 @@
 import { useGameState } from "@/hooks/use-game-state";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Settings } from "lucide-react";
 
 export default function Header() {
   const { profile } = useGameState();
+  const [, setLocation] = useLocation();
 
   if (!profile) return null;
 
@@ -50,6 +52,7 @@ export default function Header() {
             </div>
           </div>
           <Button 
+            onClick={() => setLocation("/settings")}
             variant="ghost"
             size="icon"
             className="p-2 bg-game-card rounded-lg text-white hover:bg-game-card/80"

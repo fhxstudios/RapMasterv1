@@ -1,8 +1,38 @@
 import { useGameState } from "@/hooks/use-game-state";
+import { useMutation } from "@tanstack/react-query";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+import { Calendar, Clock } from "lucide-react";
+import { apiRequest, queryClient } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 export default function HomePage() {
-  const { profile } = useGameState();
+  const { profile, setProfile, currentUserId } = useGameState();
+  const { toast } = useToast();
+
+  const advanceWeekMutation = useMutation({
+    mutationFn: async () => {
+      const response = await apiRequest("POST", "/api/game/advance-week", {
+        userId: currentUserId,
+      });
+      return response.json();
+    },
+    onSuccess: (updatedProfile) => {
+      setProfile(updatedProfile);
+      queryClient.invalidateQueries({ queryKey: ["/api/game/profile"] });
+      toast({
+        title: "Week Advanced!",
+        description: "Time has passed and you gained energy!",
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to advance week",
+        variant: "destructive",
+      });
+    },
+  });
 
   if (!profile) return null;
 
@@ -25,6 +55,34 @@ export default function HomePage() {
         <p className="text-gray-200 text-sm mb-4">Start your journey to become the #1 Rap Icon</p>
         <div className="bg-black bg-opacity-30 rounded-lg p-3">
           <p className="text-xs text-game-gold">💡 Tutorial: Go to Job to earn money, then try Music Studio!</p>
+        </div>
+      </div>
+
+      {/* Week Progress */}
+      <div className="bg-game-card rounded-xl p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-bold text-white">Week Progress</h3>
+          <div className="flex items-center text-gray-300">
+            <Calendar className="h-4 w-4 mr-2" />
+            <span className="text-sm">Year {profile.year}</span>
+          </div>
+        </div>
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-sm text-gray-300">
+            Current week is in progress...
+          </div>
+          <Button
+            onClick={() => advanceWeekMutation.mutate()}
+            disabled={advanceWeekMutation.isPending}
+            className="game-gold-gradient px-6 py-2 rounded-lg text-white font-semibold hover:opacity-90 flex items-center"
+            data-testid="button-advance-week"
+          >
+            <Clock className="mr-2 h-4 w-4" />
+            {advanceWeekMutation.isPending ? "Advancing..." : "Advance Week"}
+          </Button>
+        </div>
+        <div className="text-xs text-gray-400">
+          Advancing a week gives you +10 Energy and ages your character
         </div>
       </div>
 

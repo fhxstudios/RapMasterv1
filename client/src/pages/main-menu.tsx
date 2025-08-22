@@ -73,6 +73,7 @@ export default function MainMenu() {
           </Button>
           
           <Button 
+            onClick={() => setLocation("/settings")}
             className="w-full bg-gradient-to-r from-game-card to-gray-700 hover:from-gray-700 hover:to-game-card text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
             data-testid="button-settings"
           >

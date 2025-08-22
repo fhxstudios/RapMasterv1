@@ -186,6 +186,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Advance week endpoint
+  app.post("/api/game/advance-week", async (req, res) => {
+    try {
+      const { userId } = req.body;
+      const profile = await storage.getGameProfile(userId);
+      
+      if (!profile) {
+        return res.status(404).json({ message: "Profile not found" });
+      }
+
+      // Calculate new year and age based on weeks passed
+      const weeksPerYear = 52;
+      const currentWeek = Math.floor((profile.year - 2020) * weeksPerYear) + 1;
+      const newWeek = currentWeek + 1;
+      const newYear = 2020 + Math.floor(newWeek / weeksPerYear);
+      const ageIncrease = newYear > profile.year ? 1 : 0;
+
+      const updatedProfile = await storage.updateGameProfile(userId, {
+        year: newYear,
+        age: profile.age + ageIncrease,
+        energy: Math.min(100, profile.energy + 10), // Natural energy recovery
+      });
+
+      res.json(updatedProfile);
+    } catch (error) {
+      res.status(500).json({ message: "Server error" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
