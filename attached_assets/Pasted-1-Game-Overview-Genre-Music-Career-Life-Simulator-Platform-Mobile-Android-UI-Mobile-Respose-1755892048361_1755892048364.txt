@@ -1,0 +1,220 @@
+1️⃣ Game Overview
+Genre: Music Career / Life Simulator
+Platform: Mobile (Android)
+UI: Mobile Resposetive, 
+Coding :Kotlin+java
+Engine:Reactnative 
+Deploy : CodeMagic
+Concept: Player starts as a rookie rapper at age 20 (Year 2020) → builds career through Jobs, Music Creation, Albums, Videos, Marketing, Social Media, and Lifestyle purchases until age 60 (Year 2060).
+Objective: Grow Fame ⭐, Reputation 🎭, Fans 👥, Net Worth 💵 and become the #1 Rap Icon.
+
+2️⃣ Core Gameplay Loop
+Loop Cycle:
+Work → Earn Money 💵 + Energy ⚡.
+Invest → Studio / Equipment / Skills / Marketing.
+Create → Tracks 🎵, Albums 💽, Music Videos 🎬.
+Release → Social Media / Streaming → Generate Views, Sales & Fame.
+Grow → Fame + Reputation + Fans + Net Worth.
+Spend → Lifestyle (Cars 🚗, Houses 🏠, Fashion 👕).
+Repeat until Retirement (60 years old).
+
+
+
+
+1️⃣ Splash Screen
+Purpose: First impression, branding, and game identity.
+Duration: 3–5 seconds (skippable with tap).
+Design:
+Background: Premium gradient/glow + animated particles.
+Center: Game Logo "RapMaster Simulator" with shine/glow animation.
+Footer: “Powered by FHX STUDIOS”.
+Optional: Short beat drop (hip-hop instrumental).
+
+2️⃣ Main Menu (After Splash)
+Appears after splash fadeout.
+UI Elements:
+🎮 Play → Goes to Character Creation Page.
+⚙ Settings → Language, Sound, Graphics, About/Credits.
+📂 Load Game → If saved progress exists.
+🔒 Shop (IAP) → Starter, Mid, Exclusive Packs (optional early access).
+
+3️⃣ Character Creation Page (Entry Setup)
+Player Info Setup Flow
+Avatar Selection
+6–8 prebuilt Avatars (Male/Female, Rap Style outfits).
+Later customizable with in-game purchases.
+Stage Name
+Player types custom Stage Name.
+Auto-generated random names option.
+Starting City Selection (Optional)
+Example: Los Angeles, New York, Chicago.
+Each city gives small passive boost (e.g. NY = +Fame, LA = +Collab Chance).
+Profile Summary (Preview Before Confirm)
+Avatar Image.
+Stage Name.
+Age: 20 (default).
+Fame ⭐: 0.
+Reputation 🎭: 0.
+Fans 👥: 0.
+Net Worth 💵: $0.
+Confirm & Begin
+Tap Start Career → Moves to Home Page (Year 2020, Age 20).
+
+4️⃣ Working Loop (Splash → Character Setup)
+Step-by-Step Flow:
+Splash Screen (Brand Identity) ⬇
+Main Menu (Play, Settings, Load, Shop) ⬇
+Character Creation Page
+Choose Avatar 👤
+Choose/Enter Stage Name 🎤
+Select City 🏙 (Optional)
+Preview Summary 📊
+Confirm → Start Career 🚀 ⬇
+Home Page Opens (2020, Age 20)
+
+5️⃣ Gameplay Loop After Character Creation
+Home Page shows Profile Summary + Quick Access.
+Stable Top Header → Year, Money, Energy, Settings.
+Stable Bottom Nav Bar → Home, Job, Music Studio, Social Media, Shop, Stats, Skills.
+First Tutorial Prompt → “Go to Job to earn money, then try Music Studio!”
+
+6️⃣ Extra Features for First Time Player
+Tutorial Hints:
+Highlight Job icon → “Work to earn money.”
+Highlight Music Studio → “Create your first track.”
+Starter Rewards:
+$100 + 50 Energy (bonus for starting).
+Unlock “First Freestyle Track” tutorial.
+
+
+
+
+
+
+
+
+
+
+🔝 Stable Header (Top Bar)
+Date & Year (e.g. 1 JAN 2020)
+Currency Balance 💵 (e.g. 1M$)
+Energy ⚡ (e.g. 100)
+Settings ⚙ (with Credits/About)
++ Icons → Opens In-App Purchase Shop (Money & Energy Buy with Real Money)
+Week Progress: “°°°°” → fills with “•” as weeks pass.
+
+🔻 Stable Bottom Navigation Bar (Quick Access – Icons Only)
+🏠 Home → Profile Summary + Quick Access + News
+💼 Job → Part-time jobs, Hustles, Gigs
+🎶 Music Studio → Track, Album, Music Video Creation + Unreleased Tracks + Statistics
+🌐 Social Media → RapGram, RapTube, RikTok, Rapify, RapTube Music, RikiMedia (Artist Wiki)
+🛒 Shop → Cars, Bikes, Houses, Clothes, Accessories, Phones, Studio Equipment
+📊 Statistics → Fame ⭐, Reputation 🎭, Fans 👥, Net Worth 💵, Career Summary
+🧩 Skills → Energy-based skill training (0 → 100 upgrade)
+
+4️⃣ Game Systems
+💼 Job System
+Entry jobs → Fast Food, Delivery, Retail.
+Mid jobs → Bartender, DJ, Studio Assistant.
+Rap-related jobs → Ghostwriter, Studio Intern, Producer.
+Rewards: Money 💵 + small Fame boost.
+Each Job consumes Energy ⚡.
+
+🎶 Music Studio System
+Track Creation Flow
+Title → Custom / Random.
+Beat Selection → Free / Premium (Premium = Viral Boost).
+Lyrics Writing → Beat Selection → Free / Premium.
+Recording → Consumes 20 Energy.
+Result → Quality Score (Lyrics + Beat + Fame + Skills).
+Store as Unreleased Track or Release immediately.
+Album Creation Flow
+Requires 3–10 Tracks.
+Default Album = Basic Release.
+Premium Album = Extra Fame Boost, Professional Marketing.
+Energy Cost = 60 per Album.
+Release = Generates Sales (Not Views).
+Base Album Price = $3 per copy.
+Music Video (MV) Creation Flow
+Select Unreleased Track.
+Pick Video Agency (Package = Producer + Director + Cameraman + Editor).
+Low Price → Cheap Quality.
+Mid Price → Decent Quality.
+High Price → Professional Quality.
+Premium → Viral Guarantee.
+Energy Cost = 40 per MV.
+Result:
+Title Format → Track Title – Official Music Video.
+Rating = Agency Quality + Fame + Reputation + Fans.
+Release Options:
+Release Now (No Marketing).
+Release with Marketing → Extra Boost.
+After Release:
+Views 👀, Likes 👍, Comments 💬, Shares 🔁 generated.
+Fame ⭐, Reputation 🎭, Fans 👥 increase.
+Premium Agency = Instant Viral Boost (even 20M+ views with 0 fame).
+
+🌐 Social Media System
+Mock Mobile Phone UI → Apps inside:
+📸 RapGram (Instagram Style).
+🎥 RapTube (YouTube Style).
+🎶 Rapify (Spotify Style).
+🎬 RikTok (TikTok Style).
+🎵 RapTube Music.
+📖 RikiMedia (Wikipedia Style Artist Profile).
+Social Media Features
+Profile Creation on first use.
+Posts = Fame & Fan Growth.
+Blue Verify ✅ (for fame).
+Golden Verify ⭐ (Premium User Exclusive).
+Premium Banner on Social Media pages.
+RikiMedia (Artist Wiki)
+Stage Name / Real Name
+Age (auto from starting 20 → max 60)
+Music Career Timeline (2020 → Present)
+First Track (Title + Release Date)
+First Album (Title + Release Date)
+Net Worth Timeline → Example:
+2020 = $300K
+Present Year = Total Profit after Expenses.
+
+🛒 Shop System
+Lifestyle: Cars, Bikes, Houses, Clothes, Accessories, Phones.
+Studio: Equipment upgrades (mics, mixing gear, etc.).
+Each item increases Reputation 🎭, Fame ⭐, Fans 👥.
+
+🧩 Skill Update System
+Skills upgrade with Energy ⚡.
+Example:
+Level 1 → 2 (Cost = 1 Energy).
+Level 2 → 3 (Cost = 2 Energy).
+Scales up until 100.
+Skills affect Track Quality, MV Ratings, and Album Sales.
+
+📊 Statistics Page
+Fame ⭐, Reputation 🎭, Fans 👥.
+Net Worth 💵 (Updated yearly with income-expense balance).
+Career Timeline: Tracks, Albums, MVs released.
+Graphs for Sales, Streams, Fame growth.
+
+🛍 In-App Purchase Shop (Real Money)
+Starter Pack → Unlock Some Premium Features + $5000 + 200 Energy.
+Mid Pack → More Features + $10000 + 300 Energy.
+Exclusive Pack → All Premium Features + $50000 + 1000 Energy.
+Extra Purchases: $5000–$50000 Money or 500–50000 Energy.
+Premium Features unlocked:
+Premium Beats, Premium Video Agency, Premium Albums, Viral Boost, Golden Verify, Exclusive Luxury Items.
+
+5️⃣ Progression & Endgame
+Game begins: 2020, Age 20.
+Each week passes → Date auto updates.
+Player ages gradually until 60 years old (2060).
+Endgame:
+Retirement Summary Screen → Final Stats:
+Total Tracks, Albums, MVs Released.
+Total Fame, Fans, Reputation.
+Net Worth.
+Awards & Achievements.
+
+6️⃣ Core Loop Visual (Simplified)
+Job → Earn → Invest → Create → Release → Fame/Growth → Lifestyle → Repeat.
